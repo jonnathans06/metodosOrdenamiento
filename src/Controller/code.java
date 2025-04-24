@@ -37,9 +37,29 @@ public class code {
                     mid = j;
                 }
             }
-            Persona temp = personas[mid];
-            personas[mid] = personas[i];
-            personas[i] = temp;
+            if (mid != i) {
+                Persona temp = personas[mid];
+                personas[mid] = personas[i];
+                personas[i] = temp;
+            }
+        }
+    }
+
+    //Ordena el codigo de una dirrecion por codigo
+    //Para ordenar por este metodo primero debemos obtener el .get de la direccion y despues el .get del codigo
+    public void sortByCode(Persona[] personas, int code){
+        for(int i = 1; i < personas.length; i++){
+            int mid = i;
+                for(int j = i + 1; i < personas.length; j++){
+                    if (personas[j].getDireccion().getCodigo() > personas[mid].getDireccion().getCodigo()) {
+                        mid = j;
+                    }
+                }
+                if (mid != i) {
+                    Persona temp = personas[mid];
+                    personas[mid] = personas[i];
+                    personas[i] = temp;
+                }
         }
     }
 
