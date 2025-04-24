@@ -238,4 +238,32 @@ public class code {
         }
         return null;
     }
+
+    public Persona findPersonaByCodigoDireccion (Persona[] personas, int codigo){
+        int bajo = 0;
+        int alto = personas.length - 1;
+        while (bajo <= alto) {
+            int central = (alto + bajo)/2;
+            int valorCentro = personas[central].getCodigoDireccion();
+            if (valorCentro == codigo) {
+                return personas[central];
+            }
+            if (valorCentro > codigo) {
+                bajo = central + 1;
+            } else {
+                alto = central - 1;
+            }
+        }
+        return null;
+    }
+
+    //Metodo recive otra persona y devuelva true or false si la direecion de persona1 == persona2
+    public boolean equalsByCodeDireccion (Persona otraPersona){
+        boolean resp = getCodigoDireccion() > otraPersona.getCodigoDireccion();
+        return resp;
+    }
+
+    public boolean equalsByCodeDireccion (int codigoDireccion){
+        return getCodigoDireccion() == codigoDireccion;
+    }
 }
